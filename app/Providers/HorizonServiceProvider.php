@@ -31,19 +31,8 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
     protected function gate(): void
     {
 
-        Gate::define('viewHorizon', function (User $user) {
-            try {
-                $super_admin_users = User::query()
-                    ->where('role', UserRoleEnum::super_admin->value)
-                    ->pluck('email')
-                    ->toArray();
-
-                return in_array($user->email, $super_admin_users);
-            } catch (\Throwable $th) {
-                Journal::error($th);
-            }
-
-            return false;
+        \Illuminate\Support\Facades\Gate::define('viewHorizon', function (?\App\Models\User $user = null) {
+            return app()->environment(config('service.environments'));
         });
     }
 }
