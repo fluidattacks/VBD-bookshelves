@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --book-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+body {
+    @apply bg-gray-900 text-white;
+    scrollbar-width: thin;
+}
+
+.badge {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.book-shadow {
+    box-shadow: var(--book-shadow);
+    -webkit-box-shadow: var(--book-shadow);
+    -moz-box-shadow: var(--book-shadow);
+}
+
+.books-grid {
+    @apply grid;
+    @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6;
+    /* @apply gap-x-4 gap-y-8 sm:gap-x-6 xl:gap-x-8; */
+    @apply gap-x-6 gap-y-4;
+    @apply md:gap-x-8 md:gap-y-6;
+    /* @apply xl:gap-x-10 xl:gap-y-8; */
+    /* @apply max-w-7xl; */
+    @apply mx-auto;
+}
+
+code {
+    @apply bg-gray-700 px-1 py-0.5 rounded before:!content-[] after:!content-[];
+}

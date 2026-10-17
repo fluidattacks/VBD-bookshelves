@@ -1,0 +1,6 @@
+*
+!cache/
+!index/
+!model-backup/
+!public/
+!.gitignore
